@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Evaluate a News Article with Natural Language Processing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jacques+Francois+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="/styles/resets.css">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/form.css">
+    <link rel="stylesheet" href="/styles/footer.css"> -->
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Udacity</h1>
+        </div>
+        <nav class="navigation">
+            <ul id="menu">
+                <li>
+                    <a href="#" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="https://developer.aylien.com/signup" target="_blank">Text Analysis API</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="form-section">
+            <form class="" onsubmit="return Client.handleSubmit(event)">
+                <input id="url" type="text" name="input" value="" placeholder="Please enter URL:">
+                <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return handleSubmit(event)">
+            </form>
+        </section>
+
+        <section id="result-section">
+            <img alt="Loading" id="loading" />
+            <div id="error-holder">
+                <p></p>
+            </div>
+            <div id="sucsses-holder">
+                <h2>Form Results:</h2>
+                <div>
+                    <h3>
+                        Entered url is: <span id="search-url"></span>
+                    </h3>
+                </div>
+                <div>
+                    <h3>
+                        Polarity of this article is: <span id="polarity"></span>
+                    </h3>
+                </div>
+                <div>
+                    <h3>
+                        Subjectivity of this this article is: <span id="subjectivity"></span>
+                    </h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>This is a footer</p>
+    </footer>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
+
+</html>

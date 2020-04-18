@@ -1,0 +1,12 @@
+@import "variables";
+
+@media (min-width: 901px) {
+  #menu {
+    flex-direction: row;
+  }
+
+  #form-section,
+  #result-section {
+    width: 50%;
+  }
+}

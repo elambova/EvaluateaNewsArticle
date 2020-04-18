@@ -1,0 +1,33 @@
+@import "variables";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  background-color: $base-color;
+}
+
+.logo {
+  font-family: "Jacques Francois Shadow", cursive;
+  color: $logo-color;
+  padding: 10px 40px;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+
+  a {
+    display: inline-block;
+    color: $color;
+    padding: 20px;
+    text-decoration: none;
+  }
+
+  a.active,
+  a:hover {
+    background-color: #444;
+  }
+}
