@@ -5,6 +5,9 @@
   border: $border;
   margin: $margin;
   border-radius: $border-radius;
+  padding: 20px 40px;
+  background-color: $base-color;
+  color: $color;
 
   #error-holder {
     background-color: rgb(236, 138, 138);
