@@ -1,5 +1,6 @@
 // import js files
 import { validUrl } from "./js/validUrl";
+import { getData, postData } from "./js/request";
 import { handleSubmit } from "./js/formHandler";
 
 // import css/scss files
@@ -19,4 +20,4 @@ const loadingGif = document.getElementById("loading");
 loadingGif.src = loading;
 
 // export js files
-export { validUrl, handleSubmit };
+export { validUrl, getData, postData, handleSubmit };

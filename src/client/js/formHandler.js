@@ -1,29 +1,3 @@
-const getData = async (baseUrl) => {
-  const response = await fetch(baseUrl);
-  try {
-    return response.json();
-  } catch (error) {
-    return error;
-  }
-};
-
-// postData function using the keyword async and use method POST to post data
-const postData = async (baseUrl = "", data = {}) => {
-  const response = await fetch(baseUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-    },
-    body: JSON.stringify(data),
-  });
-  try {
-    const newData = await response.json();
-    return newData;
-  } catch (error) {
-    return error;
-  }
-};
-
 // handleSubmit function is executed when the form is submitted
 function handleSubmit(event) {
   event.preventDefault();
@@ -61,7 +35,7 @@ function handleSubmit(event) {
 
   // Check URL is valid
   if (Client.validUrl(url)) {
-    postData(baseUrlNews, { url })
+    Client.postData(baseUrlNews, { url })
       .then(function (res) {
         loading.style.display = "none";
         succsesHolderContainer.style.display = "block";
@@ -89,7 +63,7 @@ function handleSubmit(event) {
       });
     // checks if url is invalid for length less than 250 characters
   } else if (url.length <= 250) {
-    postData(baseUrlText, { text: url })
+    Client.postData(baseUrlText, { text: url })
       .then(function (res) {
         loading.style.display = "none";
         succsesHolderContainer.style.display = "block";
@@ -117,7 +91,7 @@ function handleSubmit(event) {
       });
     // The information entered does not meet any of the conditions or servers not work
   } else {
-    getData("/")
+    Client.getData("/")
       .then(function (res) {
         console.log(res);
       })

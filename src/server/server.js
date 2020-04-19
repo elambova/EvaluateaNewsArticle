@@ -4,7 +4,6 @@ var path = require("path");
 
 const express = require("express");
 const mockAPIResponse = require("./mockAPI.js");
-var AYLIENTextAPI = require("aylien_textapi");
 
 const app = express();
 
@@ -20,6 +19,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+var AYLIENTextAPI = require("aylien_textapi");
 // set api-id and api-key
 var textapi = new AYLIENTextAPI({
   application_id: process.env.API_ID,
@@ -47,8 +47,8 @@ app.get("/test", function (req, res) {
 app.post("/sentimentNews", function (req, res, next) {
   const urlHolder = req.body.url;
   textapi.sentiment({ url: urlHolder }, function (error, response) {
+    console.log("ERROR: " + error);
     if (error === null) {
-      console.log(response);
       res.send(response);
     } else {
       return next(error);
@@ -57,7 +57,7 @@ app.post("/sentimentNews", function (req, res, next) {
 });
 
 // post data to sentimentText
-app.post("/sentimentText", function (req, res) {
+app.post("/sentimentText", function (req, res, next) {
   const textHolder = req.body.text;
   textapi.sentiment({ text: textHolder, mode: "document" }, function (
     error,
